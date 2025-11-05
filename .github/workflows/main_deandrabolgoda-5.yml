@@ -24,6 +24,9 @@ jobs:
           node-version: '24.x'
 
       - name: npm install, build, and test
+        # This is the first fix:
+        # Run npm commands inside the 'frontend' directory
+        working-directory: ./frontend
         run: |
           npm install
           npm run build --if-present
@@ -33,7 +36,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          # This is the second fix:
+          # Upload only the build output, assuming it's in 'frontend/build'
+          path: ./frontend/build
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,9 +56,11 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A0CFBB8B5213420EBA4C3AA9A1371A40 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3545A3D3402B48DA9596869BC58B4FF6 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6B0B62EA4B6F4F20BCB879746DCC083C }}
+          # This is the third fix:
+          # Use standard secret names for clarity.
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -61,5 +68,5 @@ jobs:
         with:
           app-name: 'DeandraBolgoda-5'
           slot-name: 'Production'
+          # This is now correct, as the artifact contains *only* the build files
           package: .
-          
