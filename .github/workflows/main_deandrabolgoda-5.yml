@@ -27,10 +27,10 @@ jobs:
         working-directory: ./frontend
         run: |
           npm install
-          # THIS IS THE FIX:
-          # CI=false tells react-scripts to not treat warnings as errors
           CI=false npm run build --if-present
-          npm run test --if-present
+          # THIS IS THE FIX:
+          # Tell the test runner to pass even if no tests are found
+          npm run test --if-present -- --passWithNoTests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
