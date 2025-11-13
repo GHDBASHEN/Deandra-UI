@@ -322,7 +322,7 @@ export const Home = () => {
             <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
               <div className="h-96 overflow-y-auto">
                 <iframe
-                  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshyama.desilva.104%2Fposts%2Fpfbid0pvfF774dX5tbmbpmFbJVi4XV87SQWbRUmJuDLJrDf3HiBtLdoNgWoxTSq1xogwtMl&show_text=true&width=500"
+                  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fayshu.sand%2Fposts%2Fpfbid02vrdsEZd9eaeifsgZHNiptF7f2jvaakzhFPChLHqM7CUsAYmyqVWMZ6G4AcUsuHwDl&show_text=true&width=500"
                   width="100%"
                   height="350"
                   style={{ border: 'none', overflow: 'hidden' }}
@@ -338,8 +338,8 @@ export const Home = () => {
                   {"Shyama De Silva".split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Shyama De Silva</h4>
-                  <p className="text-xs text-gray-500">Corporate Event</p>
+                  <h4 className="font-bold text-gray-900">Aysha Sandamali</h4>
+                  <p className="text-xs text-gray-500">Wedding Event</p>
                   <div className="text-yellow-400 mb-4 text-xs">
                     {'★'.repeat(3)}
                   </div>
